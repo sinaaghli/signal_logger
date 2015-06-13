@@ -13,15 +13,13 @@ find_package( ZeroMQ REQUIRED )
 find_package( ZeroMQPP REQUIRED )
 find_package( HAL REQUIRED )
 find_package( Node REQUIRED )
-#find_package( MINIGLOG REQUIRED )
+find_package( Pangolin REQUIRED )
 
 include_directories( ${ZeroMQ_INCLUDE_DIRS} )
 include_directories( ${ZeroMQPP_INCLUDE_DIRS} )
 include_directories( ${HAL_INCLUDE_DIRS} )
 include_directories( ${Node_INCLUDE_DIRS} )
-#include_directories( ${MINIGLOG_INCLUDE_DIRS} )
-
-
+include_directories( ${Pangolin_INCLUDE_DIRS} )
 
 set( HDRS FtdiDriver.h)
 set( SRCS signal_logger.cpp)
@@ -30,7 +28,7 @@ add_executable( ${PROJECT_NAME} ${HDRS} ${SRCS} )
 target_link_libraries( ${PROJECT_NAME}
     ${ZeroMQ_LIBRARIES}
     ${ZeroMQPP_LIBRARIES}
+    ${Pangolin_LIBRARIES}
     ${HAL_LIBRARIES}
     ${Node_LIBRARIES} 
-#    ${MINIGLOG_LIBRARIES} 
     )
